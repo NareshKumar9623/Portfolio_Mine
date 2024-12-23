@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation Example</title>
+    <style>
+        #loader {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            margin: -50px 0 0 -50px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            z-index: 9999;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        body.loading #loader {
+            display: block;
+        }
+
+        body:not(.loading) #loader {
+            display: none;
+        }
+    </style>
+</head>
+<body class="loading">
+    <div id="loader"></div>
+
+    <!-- Your existing content goes here -->
+    <div id="colorlib-map">
+        <div class="container">
+            <div class="row text-center">
+                <h2 class="bold">Map View</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="map-flex">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d15643.821307310918!2d78.2134339!3d11.4107887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1722830807911!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Map View End -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">© 2022 Naresh Kumar Saravanan. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.remove('loading');
+        });
+    </script>
+</body>
+</html>
